@@ -43,11 +43,11 @@ public class EqualityOrSynonymService implements StringSimilarity{
 	}
 	
 	@Override
-	public int getNumMatches(List<NTuple> nTuples1, List<NTuple> nTuples2) {
+	public int getNumMatches(List<NTuple<String>> nTuples1, List<NTuple<String>> nTuples2) {
 
 			int count =0;
-			for(NTuple tuple1: nTuples1) {
-				for(NTuple tuple2: nTuples2) {
+			for(NTuple<String> tuple1: nTuples1) {
+				for(NTuple<String> tuple2: nTuples2) {
 					//Design decision count each match just once
 					if(isMatch(tuple1, tuple2, synonyms)) {
 						count++;
@@ -59,14 +59,14 @@ public class EqualityOrSynonymService implements StringSimilarity{
 			return count;
 	}
 	
-	public boolean isMatch(NTuple tuple1, NTuple tuple2,
+	public boolean isMatch(NTuple<String> tuple1, NTuple<String> tuple2,
 			Map<String, List<String>> synonyms) {
 		if (tuple1.size() != tuple2.size())
 			throw new IllegalArgumentException("Your tuple sizes do not match");
 
 		for (int i = 0; i < tuple1.size(); i++) {
-			String word1 = tuple1.getWord(i);
-			String word2 = tuple2.getWord(i);
+			String word1 = tuple1.get(i);
+			String word2 = tuple2.get(i);
 			// Don't need to to equalsIgnoreCase as preprocessing done earlier
 			if (!word1.equals(word2)) {
 				//check if they are synonyms

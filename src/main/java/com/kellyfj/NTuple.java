@@ -6,15 +6,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NTuple {
+/**
+ * Class to represent our Tuple of type <T>
+ * @author kellyfj
+ */
+public class NTuple<T> {
 
-	List<String> wordsInTuple = new ArrayList<String>();
+	List<T> wordsInTuple = new ArrayList<T>();
 	
-	public void addWord(String string) {
+	public void addWord(T string) {
 		wordsInTuple.add(string);
 	}
 	
-	public String getWord(int i) {
+	public T get(int i) {
 		return wordsInTuple.get(i);
 	}
 	
@@ -22,9 +26,9 @@ public class NTuple {
 		return wordsInTuple.size();
 	}
 
-	public static List<NTuple> loadTuplesFromFile(String fileName, int tupleSize) throws IOException{
+	public static List<NTuple<String>> loadTuplesFromFile(String fileName, int tupleSize) throws IOException{
 		BufferedReader br=null;
-		List<NTuple> tuples = new ArrayList<NTuple>();
+		List<NTuple<String>> tuples = new ArrayList<NTuple<String>>();
 		try {
 			br = new BufferedReader(new InputStreamReader(NTuple.class.getClassLoader().getResourceAsStream(fileName)));
 			System.out.println("Tuple File: "+fileName);
@@ -41,13 +45,13 @@ public class NTuple {
 		return tuples;
 	}
 
-	private static List<NTuple> lineToTuple(String line, int tupleSize) {
-		List<NTuple> tuplesInLine = new ArrayList<NTuple>();
+	private static List<NTuple<String>> lineToTuple(String line, int tupleSize) {
+		List<NTuple<String>> tuplesInLine = new ArrayList<NTuple<String>>();
 		
 		String[] splitwords = line.toLowerCase().split(" ");
 		for(int i=0; i< splitwords.length - (tupleSize-1); i++) {
 			
-			NTuple n = new NTuple();
+			NTuple<String> n = new NTuple<String>();
 			for(int j=i; j < i+tupleSize; j++ ) {
 				n.addWord(splitwords[j]);
 			}
