@@ -73,7 +73,8 @@ public class PlagiarismDetector {
 					baseFileName, numTuples);
 			
 		}else { //In case user sets no args lets just run our tests - normally this would be in JUnit
-			System.out.println("Running Test");
+			System.out.println("Running Tests");
+			System.out.println("=== TEST 1 OF 2===");
 			synonymsFileName = "synonyms.txt";
 		    comparisonFileName = "file1.txt";
 			baseFileName = "file2.txt";
@@ -86,6 +87,8 @@ public class PlagiarismDetector {
 				System.exit(-1);
 			}
 
+			System.out.println("\n=== TEST 2 OF 2===");
+
 			baseFileName = "file3.txt";
 			rate = pd.getPlagiarismScore(synonymsFileName, comparisonFileName, baseFileName, numTuples);
 			if (rate != 50.0) {
@@ -94,7 +97,7 @@ public class PlagiarismDetector {
 				System.exit(-1);
 			}
 
-			System.out.println("SUCCESS: Tests passed");
+			System.out.println("=== SUCCESS: All tests passed ===");
 		}		
 	}
 	
