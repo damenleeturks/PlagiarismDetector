@@ -14,12 +14,8 @@ public class PlagiarismDetector {
 	/**
 	 * Get the Plagiarism score - the higher the number the more likelihood. 
 	 * 
-	 * @param synonymsFileName
-	 * @param inputFileName1
-	 * @param inputFileName2
-	 * @param tupleSize
 	 * @return The percentage of tuples in input file 1 that have a match in input file 2
-	 * @throws IOException
+	 * @throws IOException if we are unable to read any of the three files specified
 	 */
 	public double getPlagiarismScore(String synonymsFileName, String inputFileName1, String inputFileName2, int tupleSize) throws IOException{
 		
