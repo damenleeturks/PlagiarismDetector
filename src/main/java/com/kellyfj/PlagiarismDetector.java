@@ -33,7 +33,9 @@ public class PlagiarismDetector {
 		int count = service.countMatches(nTuples1, nTuples2);
 		System.out.println("Num matches "+count);
 		
-		double percentMatch = (100 * count)/nTuples1.size();		
+		double percentMatch = 0.0;
+		if(nTuples1.size() > 0)
+			percentMatch = (100 * count)/nTuples1.size();		
 		System.out.println("% of tuples that match: "+percentMatch);
 		
 		return percentMatch;

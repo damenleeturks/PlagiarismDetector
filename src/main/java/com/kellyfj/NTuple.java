@@ -56,6 +56,11 @@ public class NTuple<T> {
 		List<NTuple<String>> tuplesInLine = new ArrayList<NTuple<String>>();
 		
 		String[] splitwords = line.toLowerCase().split(" "); //Note lower case preprocessing done once here
+		
+		//Some more checking
+		if(splitwords.length < tupleSize) {
+			return tuplesInLine;
+		}
 		//TODO what if length is zero or 1 should we throw an exception?
 		for(int i=0; i< splitwords.length - (tupleSize-1); i++) {
 			
