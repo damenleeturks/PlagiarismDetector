@@ -103,6 +103,8 @@ public class EqualityOrSynonymService implements StringSimilarity{
 
 					List<String> syn1 = synonyms.get(word1);
 					List<String> syn2 = synonyms.get(word2);
+					//Perhaps we could get by with == that is are they pointing to the same object?
+					//See defn of list.equals() http://docs.oracle.com/javase/7/docs/api/java/util/List.html#equals(java.lang.Object)
 					if (!syn1.equals(syn2)) {
 						return false;
 					}

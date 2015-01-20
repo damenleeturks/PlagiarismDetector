@@ -35,7 +35,7 @@ public class NTuple<T> {
 			String line;
 			while ((line = br.readLine()) != null) {
 				System.out.println(line);
-				tuples.addAll(lineToTuple(line, tupleSize));
+				tuples.addAll(lineToTuples(line, tupleSize));
 			}
 			}  finally {
 				if(br!=null)
@@ -52,16 +52,16 @@ public class NTuple<T> {
 	 * @param tupleSize
 	 * @return
 	 */
-	private static List<NTuple<String>> lineToTuple(String line, int tupleSize) {
+	private static List<NTuple<String>> lineToTuples(String line, int tupleSize) {
 		List<NTuple<String>> tuplesInLine = new ArrayList<NTuple<String>>();
 		
 		String[] splitwords = line.toLowerCase().split(" "); //Note lower case preprocessing done once here
 		
 		//Some more checking
 		if(splitwords.length < tupleSize) {
-			return tuplesInLine;
+			return tuplesInLine; //return empty list
 		}
-		//TODO what if length is zero or 1 should we throw an exception?
+		//TODO what if number of words in the line is zero or 1? Should we throw an exception?
 		for(int i=0; i< splitwords.length - (tupleSize-1); i++) {
 			
 			NTuple<String> n = new NTuple<String>();
