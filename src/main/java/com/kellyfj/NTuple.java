@@ -45,10 +45,18 @@ public class NTuple<T> {
 		return tuples;
 	}
 
+	/**
+	 * Convert a line of synonyms e.g. "run sprint jog" to a List of tupleSized tuples
+	 * 
+	 * @param line
+	 * @param tupleSize
+	 * @return
+	 */
 	private static List<NTuple<String>> lineToTuple(String line, int tupleSize) {
 		List<NTuple<String>> tuplesInLine = new ArrayList<NTuple<String>>();
 		
-		String[] splitwords = line.toLowerCase().split(" ");
+		String[] splitwords = line.toLowerCase().split(" "); //Note lower case preprocessing done once here
+		//TODO what if length is zero or 1 should we throw an exception?
 		for(int i=0; i< splitwords.length - (tupleSize-1); i++) {
 			
 			NTuple<String> n = new NTuple<String>();

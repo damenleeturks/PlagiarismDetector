@@ -14,5 +14,5 @@ public interface StringSimilarity {
 	/**
 	 * Tells us the number of matches between two lists of tuples
 	 */
-	public int getNumMatches(List<NTuple<String>> nTuples1, List<NTuple<String>> nTuples2);
+	public int countMatches(List<NTuple<String>> nTuples1, List<NTuple<String>> nTuples2);
 }

@@ -23,15 +23,14 @@ public class PlagiarismDetector {
 	 */
 	public double getPlagiarismScore(String synonymsFileName, String inputFileName1, String inputFileName2, int tupleSize) throws IOException{
 		
-		EqualityOrSynonymService e = new EqualityOrSynonymService();
-		e.loadSynonymsFromFile(synonymsFileName);
+		EqualityOrSynonymService service = new EqualityOrSynonymService(synonymsFileName);
 		System.out.println("");
 		List<NTuple<String>> nTuples1 = NTuple.loadTuplesFromFile(inputFileName1, tupleSize);
 		System.out.println("");
 		List<NTuple<String>> nTuples2 = NTuple.loadTuplesFromFile(inputFileName2, tupleSize);
 		System.out.println("");
 		
-		int count = e.getNumMatches(nTuples1, nTuples2);
+		int count = service.countMatches(nTuples1, nTuples2);
 		System.out.println("Num matches "+count);
 		
 		double percentMatch = (100 * count)/nTuples1.size();		
