@@ -21,6 +21,9 @@ public class PlagiarismDetector {
 		
 		EqualityOrSynonymService service = new EqualityOrSynonymService(synonymsFileName);
 		System.out.println("");
+		
+		//NOTE: Rearranging a string containing N words into tuples of size k in this way
+		// results in a LOT of duplication and creation of strings
 		List<NTuple<String>> nTuples1 = NTuple.loadTuplesFromFile(inputFileName1, tupleSize);
 		System.out.println("");
 		List<NTuple<String>> nTuples2 = NTuple.loadTuplesFromFile(inputFileName2, tupleSize);
