@@ -2,6 +2,7 @@
 Basic command-line program that performs plagiarism detection using a N-tuple comparison algorithm allowing for synonyms in the text.
 
 <h3>Sample Usage using Gradle wrapper</h3>
+
 ```
 $ ./gradlew build run
 :compileJava UP-TO-DATE
