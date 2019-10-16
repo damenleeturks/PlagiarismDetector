@@ -1,12 +1,13 @@
 # PlagiarismDetector
 Basic command-line program that performs plagiarism detection using a N-tuple comparison algorithm allowing for synonyms in the text.
 
-<h3>Sample Usage using Gradle wrapper</h3>
+## Sample Usage using Gradle wrapper
+
 ```
-$ ./gradlew build run
-:compileJava UP-TO-DATE
-:processResources UP-TO-DATE
-:classes UP-TO-DATE
+$ ./gradlew build run 
+:compileJava UP-TO-DATE 
+:processResources UP-TO-DATE 
+:classes UP-TO-DATE 
 :jar UP-TO-DATE
 :assemble UP-TO-DATE
 :compileTestJava UP-TO-DATE
@@ -46,9 +47,10 @@ BUILD SUCCESSFUL
 Total time: 2.798 secs
 ```
 
-<h3>Sample Usage using Command Line</h3>
+## Sample Usage using Command Line
 
 Run with no args to execute the internal tests
+
 ```
 $ java -cp bin com.kellyfj.PlagiarismDetector
 Running Test
@@ -79,6 +81,7 @@ SUCCESS: Tests passed
 ```
 
 Run with arguments 
+
 ```
 arg1 = file containing synonyms
 arg2 = file containing strings to compare
@@ -86,7 +89,8 @@ arg3 = file containing our baseline strings to compare against
 arg4 = [Optional] Size of each nTuple
 ```
 
-Example
+### Example
+
 ```
 $ java -cp bin com.kellyfj.PlagiarismDetector synonyms.txt file1.txt file2.txt 
 Synonyms File: synonyms.txt
@@ -101,7 +105,9 @@ go for a jog
 Num matches 2
 % of tuples that match: 100.0
 ```
+
 or
+
 ```
 $ java -cp bin com.kellyfj.PlagiarismDetector synonyms.txt file1.txt file2.txt 2
 Synonyms File: synonyms.txt
